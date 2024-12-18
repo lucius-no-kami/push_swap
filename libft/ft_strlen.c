@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/09 09:10:22 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/26 10:40:51 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	(void)av;
-	if (ac == 1)
-	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
-	}
-	push_swap();
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (*s++)
+		i++;
+	return (i);
 }

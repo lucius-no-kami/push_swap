@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/10 22:54:36 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/12 13:40:56 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putstr_fd(char *s, int fd)
 {
-	(void)av;
-	if (ac == 1)
+	while (*s)
 	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	push_swap();
-	return (0);
 }

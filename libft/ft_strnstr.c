@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/10 11:00:04 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/12 13:41:29 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	(void)av;
-	if (ac == 1)
+	size_t	nlen;
+
+	nlen = ft_strlen(needle);
+	if (!nlen)
+		return ((char *)haystack);
+	while (*haystack && len-- >= nlen)
 	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
+		if (!ft_strncmp(haystack, needle, nlen))
+			return ((char *)haystack);
+		haystack++;
 	}
-	push_swap();
-	return (0);
+	return (NULL);
 }

@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/09 08:59:09 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/12 13:40:10 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_isalnum(int c)
 {
-	(void)av;
-	if (ac == 1)
-	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
-	}
-	push_swap();
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	return (0);
 }

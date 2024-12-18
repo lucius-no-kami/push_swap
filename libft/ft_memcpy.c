@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/09 09:43:07 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/12 13:40:36 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	(void)av;
-	if (ac == 1)
+	size_t	i;
+
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < n)
 	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
+		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+		i++;
 	}
-	push_swap();
-	return (0);
+	return (dest);
 }

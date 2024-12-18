@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 10:53:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/11/10 23:32:54 by lucius            #+#    #+#             */
+/*   Updated: 2024/11/12 13:40:53 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void)av;
-	if (ac == 1)
+	if (n == -2147483648)
 	{
-		ft_printf(RED"Test\n"RESET);
-		return (0);
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	push_swap();
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + 48, fd);
 }
