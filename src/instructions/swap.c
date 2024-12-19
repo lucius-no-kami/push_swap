@@ -6,26 +6,34 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:43:12 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/18 09:00:00 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/19 08:59:40 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack	**stack)
+void	sa(t_stack	**stack)
+{
+	t_stack	*first_pos;
+	t_stack	*second_pos;
+
+	if (!(*stack)->value || !(*stack)->next)
+		return ;
+	first_pos = *stack;
+	second_pos = (*stack)->next;
+	first_pos->next = second_pos->next;
+	second_pos->next = first_pos;
+	*stack = second_pos;
+}
+
+void	sb(t_stack	**stack)
 {
 	if (!(*stack)->value)
 		return ;
 }
 
-void	swap_b(t_stack	**stack)
+void	ss(t_stack **stackA, t_stack **stackB)
 {
-	if (!(*stack)->value)
-		return ;
-}
-
-void	super_swap(t_stack *stack)
-{
-	swap_a(stack);
-	swap_b(stack);
+	sa(stackA);
+	sb(stackB);
 }
