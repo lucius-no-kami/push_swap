@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/19 07:57:11 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:07:50 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 
 typedef struct s_stack
 {
-	int		value;
-	t_stack	*next;
+	int				value;
+	struct s_stack	*next;
 }	t_stack;
 
 int		push_swap(void);
@@ -37,6 +37,6 @@ int		push_swap(void);
 /* SWAP */
 void	sa(t_stack	**stack);
 void	sb(t_stack	**stack);
-void	ss(t_stack **stack);
+void	ss(t_stack **stackA, t_stack **stackB);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:43:12 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/19 08:59:40 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:09:06 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	sa(t_stack	**stack)
 
 void	sb(t_stack	**stack)
 {
-	if (!(*stack)->value)
-		return ;
+	sa(stack);
 }
 
 void	ss(t_stack **stackA, t_stack **stackB)
