@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/19 18:07:50 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:19:33 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,27 @@
 # define RESET          "\033[0m"
 
 # include <stdio.h>
+# include <limits.h>
 # include "libft.h"
 /* #include "mlx.h" */
 
 typedef struct s_stack
 {
 	int				value;
+	int				index;
+	int				push_cost;
+	int				bigger_median;
+	int				cheapest;
+	struct s_stack	*target_node;
+	struct s_stack	*previous;
 	struct s_stack	*next;
 }	t_stack;
 
+/* MAIN */
 int		push_swap(void);
 
-/* SWAP */
-void	sa(t_stack	**stack);
-void	sb(t_stack	**stack);
-void	ss(t_stack **stackA, t_stack **stackB);
+/* Stack */
+void	init_stack(t_stack **a, char **av);
+int		error_syntax(char *str);
 
 #endif

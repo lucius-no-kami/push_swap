@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 08:48:59 by lucius            #+#    #+#             */
-/*   Updated: 2024/11/26 10:43:12 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:32:33 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_itoa(int n);
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	**ft_split(char const *s, char c);
