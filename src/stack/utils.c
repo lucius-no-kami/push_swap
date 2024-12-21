@@ -1,35 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:17:42 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 10:57:03 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 12:48:37 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack	**a)
+int	stack_len(t_stack *head)
+{
+	int		count;
+
+	if (!head)
+		return (0);
+	if (head->next == NULL)
+		return (1);
+	count = 1;
+	while (head->next != NULL)
+	{
+		count++;
+		head = head->next;
+	}
+	return (count);
+}
+
+void	free_stack(t_stack	**head)
 {
 	t_stack	*tmp;
 
-	if (!a)
+	if (!head)
 		return ;
-	while (*a)
+	while (*head)
 	{
-		tmp = (*a)->next;
-		free(*a);
-		*a = tmp;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
-	*a = NULL;
+	*head = NULL;
 }
 
-void	free_errors(t_stack **a)
+void	free_errors(t_stack **head)
 {
-	free_stack(a);
+	free_stack(head);
 	ft_printf(RED"Error\n"RESET);
 	exit(EXIT_FAILURE);
 }

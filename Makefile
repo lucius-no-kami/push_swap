@@ -16,8 +16,12 @@ OBJDIR = obj
 INCDIR = include
 
 # Source Files
-SRC = push_swap.c main.c stack/init_stack.c	utils/list_utils.c \
-	  utils/handling_errors.c
+SRC_MAIN = main.c push_swap.c
+SRC_STACK = stack/init_stack.c stack/handling_errors.c stack/utils.c
+SRC_SORTING = sorting/stack_sorted.c
+SRC_INSTRUCTION = instructions/swap.c
+
+SRC = $(SRC_MAIN) $(SRC_STACK) $(SRC_SORTING) $(SRC_INSTRUCTION)
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))

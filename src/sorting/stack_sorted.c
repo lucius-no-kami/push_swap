@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 11:09:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 11:12:24 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:02:28 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,9 @@ int	sorted(t_stack *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+void	sort_three(t_stack **a)
+{
+	
 }

@@ -6,11 +6,19 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 11:15:24 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:01:48 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_stack(t_stack *a)
+{
+	if (a == NULL)
+		return ;
+	ft_printf("Stack value: %d\n", a->value);
+	print_stack(a->next);
+}
 
 int	main(int ac, char **av)
 {
@@ -30,9 +38,10 @@ int	main(int ac, char **av)
 			sa(&a, 1);
 		else if (stack_len(a) == 3)
 			sort_three(&a);
-		else
-			turk_algorithm(&a, &b);
+		/*else
+			turk_algorithm(&a, &b);*/
 	}
+	print_stack(a);
 	free_stack(&a);
 	return (0);
 }
