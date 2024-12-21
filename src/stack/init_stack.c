@@ -6,13 +6,31 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 11:14:35 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/20 13:27:56 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 09:31:32 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_syntax(char *str)
+void	free_errors(t_stack **a)
+{
+	
+}
+
+static int	error_duplicate(t_stack *a, int n)
+{
+	t_stack	*tmp;
+
+	while (a)
+	{
+		if (a->value == n)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+static int	error_syntax(char *str)
 {
 	int	i;
 
@@ -28,6 +46,25 @@ int	error_syntax(char *str)
 	return (0);
 }
 
+static void	append(t_stack *a, int n)
+{
+	t_stack	*last_node;
+	t_stack	*new_node;
+
+	new_node = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_node)
+	{
+		free_errors(a);
+		ft_printf(RED"Error\n"RESET);
+		exit(EXIT_FAILURE);
+	}
+	while (last_node)
+		last_node = last_node->next;
+	new_node->value = n;
+	new_node->next = NULL;
+	last_node->next = new_node;
+}
+
 void	init_stack(t_stack **a, char **av)
 {
 	long	n;
@@ -41,7 +78,7 @@ void	init_stack(t_stack **a, char **av)
 		n = ft_atol(av[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);
-		if (duplicate(*a, (int)n))
+		if (error_duplicate(*a, (int)n))
 			free_errors(a);
 		append(a, (int)n);
 		i++;
