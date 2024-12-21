@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handling_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 11:15:24 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/21 10:30:30 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/21 10:56:45 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	error_duplicate(t_stack *a, int n)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av + 1);
-	if (!sorted(a))
+	if (!a)
+		return (0);
+	while (a)
 	{
-		if (stack_len(a) == 2)
-			sa(&a, 1);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			turk_algorithm(&a, &b);
+		if (a->value == n)
+			return (1);
+		a = a->next;
 	}
-	free_stack(&a);
+	return (0);
+}
+
+int	error_syntax(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!(str[i] == '-' || str[i] == '+' || (str[i] >= '0' && str[i] <= '9')))
+		return (1);
+	if ((str[i] == '-' || str[i] == '+') && \
+	!(str[i + 1] >= '0' && str[i + 1] <= '9'))
+		return (1);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
 	return (0);
 }

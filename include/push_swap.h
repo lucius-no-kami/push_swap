@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/20 13:19:33 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 11:07:57 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,9 @@ int		push_swap(void);
 /* Stack */
 void	init_stack(t_stack **a, char **av);
 int		error_syntax(char *str);
+int		error_duplicate(t_stack *a, int n);
+void	free_errors(t_stack **a);
+int		sorted(t_stack *a);
+t_stack	*find_last_node(t_stack *head);
 
 #endif

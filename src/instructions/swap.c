@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 11:15:24 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/21 11:14:28 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/21 11:22:47 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	swap(t_stack **stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*head;
+	t_stack	*tmp;
+}
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av + 1);
-	if (!sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, 1);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			turk_algorithm(&a, &b);
-	}
-	free_stack(&a);
-	return (0);
+void	sa(t_stack **a, int print)
+{
+	swap(a);
+	if (print == 1)
+		ft_printf("sa\n");
+}
+
+void	sb(t_stack **b, int print)
+{
+	swap(b);
+	if (print == 1)
+		ft_printf("sb\n");
+}
+
+void	ss(t_stack **a, t_stack **b, int print)
+{
+	swap(a);
+	swap(b);
+	if (print == 1)
+		ft_printf("ss\n");
 }

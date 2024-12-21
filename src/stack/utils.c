@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:52:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 11:15:24 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/21 10:17:42 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/21 10:57:03 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	free_stack(t_stack	**a)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*tmp;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	init_stack(&a, av + 1);
-	if (!sorted(a))
+	if (!a)
+		return ;
+	while (*a)
 	{
-		if (stack_len(a) == 2)
-			sa(&a, 1);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			turk_algorithm(&a, &b);
+		tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
 	}
-	free_stack(&a);
-	return (0);
+	*a = NULL;
+}
+
+void	free_errors(t_stack **a)
+{
+	free_stack(a);
+	ft_printf(RED"Error\n"RESET);
+	exit(EXIT_FAILURE);
+}
+
+t_stack	*find_last_node(t_stack *head)
+{
+	t_stack	*current;
+
+	current = head;
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
 }

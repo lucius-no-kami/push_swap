@@ -16,7 +16,8 @@ OBJDIR = obj
 INCDIR = include
 
 # Source Files
-SRC = push_swap.c main.c stack/init_stack.c	
+SRC = push_swap.c main.c stack/init_stack.c	utils/list_utils.c \
+	  utils/handling_errors.c
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))

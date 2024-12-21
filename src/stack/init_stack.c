@@ -6,63 +6,36 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 11:14:35 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 09:31:32 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 10:39:39 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_errors(t_stack **a)
-{
-	
-}
-
-static int	error_duplicate(t_stack *a, int n)
-{
-	t_stack	*tmp;
-
-	while (a)
-	{
-		if (a->value == n)
-			return (1);
-		a = a->next;
-	}
-	return (0);
-}
-
-static int	error_syntax(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '0' && i == 0 && (str[i + 1] > '0' && str[i + 1] < '9'))
-			return (1);
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static void	append(t_stack *a, int n)
+static void	append(t_stack **a, int n)
 {
 	t_stack	*last_node;
 	t_stack	*new_node;
 
+	if (!a)
+		return ;
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
-	{
-		free_errors(a);
-		ft_printf(RED"Error\n"RESET);
-		exit(EXIT_FAILURE);
-	}
-	while (last_node)
-		last_node = last_node->next;
+		return ;
 	new_node->value = n;
 	new_node->next = NULL;
-	last_node->next = new_node;
+	new_node->cheapest = 0;
+	if (!(*a))
+	{
+		*a = new_node;
+		new_node->previous = NULL;
+	}
+	else
+	{
+		last_node = find_last_node(*a);
+		last_node->next = new_node;
+		new_node->previous = last_node;
+	}
 }
 
 void	init_stack(t_stack **a, char **av)
