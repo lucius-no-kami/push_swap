@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_sorted.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 11:09:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 14:15:20 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/21 14:09:28 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/21 14:12:39 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sorted(t_stack *a)
+t_stack	*find_biggest(t_stack *head)
 {
-	if (!a)
-		return (1);
-	while (a->next)
-	{
-		if (a->value > a->next->value)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-void	sort_three(t_stack **a)
-{
+	int		max_value;
 	t_stack	*biggest;
 
-	biggest = find_biggest(*a);
-	if (biggest == *a)
-		ra(a, 1);
-	else if ((*a)->next == biggest)
-		rra(a, 1);
-	if ((*a) > (*a)->next)
-		sa(a, 1);
+	if (!head)
+		return ;
+	max_value = INT_MIN;
+	while (head)
+	{
+		if (head->value > max_value)
+		{
+			biggest = head;
+			max_value = head->value;
+		}
+		head = head->next;
+	}
+	return (biggest);
 }
