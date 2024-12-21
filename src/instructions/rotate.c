@@ -6,16 +6,13 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:15:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 14:17:26 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/21 14:30:23 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack **head)
-{
-	
-}
+void	rotate(t_stack **head);
 
 void	ra(t_stack **a, int print)
 {
