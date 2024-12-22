@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 11:03:12 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:41:50 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	rr(t_stack **a, t_stack **b, int print);
 void	rra(t_stack **a, int print);
 void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b, int print);
+
+void	pa(t_stack **a, t_stack **b, int print);
+void	pb(t_stack **a, t_stack **b, int print);
 
 /* Stack */
 void	init_stack(t_stack **head, char **av);

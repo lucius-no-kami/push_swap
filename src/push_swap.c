@@ -6,13 +6,14 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 12:51:33 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:23:46 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *a)
+/* A SUPPRIMER */
+static void	print_stack(t_stack *a)
 {
 	if (a == NULL)
 		return ;
@@ -20,7 +21,7 @@ void	print_stack(t_stack *a)
 	print_stack(a->next);
 }
 
-void	check_and_sort(t_stack **a, t_stack **b, char **av)
+static void	check_and_sort(t_stack **a, t_stack **b, char **av)
 {
 	(void)b;
 	init_stack(a, av);
@@ -33,8 +34,6 @@ void	check_and_sort(t_stack **a, t_stack **b, char **av)
 		else
 			turk_algorithm(&a, &b);
 	}
-	print_stack(*a);
-	free_stack(a);
 }
 
 int	push_swap(int ac, char **av)
@@ -54,14 +53,16 @@ int	push_swap(int ac, char **av)
 	return (0);
 }
 
-/*	ft_printf("After init:\n");
-	print_stack(a);
-	rra(&a, 1);
-	ft_printf("After rra:\n");
-	print_stack(a);
-	ra(&a, 1);
-	ft_printf("After ra:\n");
-	print_stack(a);
-	sa(&a, 1);
-	ft_printf("After sa:\n");
-	print_stack(a);*/
+/*
+	pb(a, b, 1);
+	ft_printf(CYAN"Stack A\n"RESET);
+	print_stack(*a);
+	ft_printf(GREEN"Stack B\n"RESET);
+	print_stack(*b);
+	pa(a, b, 1);
+	ft_printf(CYAN"Stack A\n"RESET);
+	print_stack(*a);
+	ft_printf(GREEN"Stack B\n"RESET);
+	print_stack(*b);
+	free_stack(a);
+*/
