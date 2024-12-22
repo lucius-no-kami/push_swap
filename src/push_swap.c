@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 10:12:19 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:45:58 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ void	print_stack(t_stack *a)
 	print_stack(a->next);
 }
 
+void	check_and_sort(t_stack **a, t_stack **b, char **av)
+{
+	(void)b;
+	init_stack(a, av);
+	if (!sorted(*a))
+	{
+		if (stack_len(*a) == 2)
+			sa(a, 1);
+		else if (stack_len(*a) == 3)
+			sort_three(a);
+		/*else
+			turk_algorithm(&a, &b);*/
+	}
+	print_stack(*a);
+	free_stack(a);
+}
+
 int	push_swap(int ac, char **av)
 {
 	t_stack	*a;
@@ -31,19 +48,20 @@ int	push_swap(int ac, char **av)
 		return (1);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
-	init_stack(&a, av);
-	ra(&a, 1);
-	sa(&a, 1);
-	/*if (!sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, 1);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			turk_algorithm(&a, &b);
-	}*/
-	print_stack(a);
-	free_stack(&a);
+	else
+		av = av + 1;
+	check_and_sort(&a, &b, av);
 	return (0);
 }
+
+/*	ft_printf("After init:\n");
+	print_stack(a);
+	rra(&a, 1);
+	ft_printf("After rra:\n");
+	print_stack(a);
+	ra(&a, 1);
+	ft_printf("After ra:\n");
+	print_stack(a);
+	sa(&a, 1);
+	ft_printf("After sa:\n");
+	print_stack(a);*/

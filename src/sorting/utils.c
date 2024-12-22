@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:09:28 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 08:48:03 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 10:56:21 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*find_biggest(t_stack *head)
 	t_stack	*biggest;
 
 	if (!head)
-		return ;
+		return (NULL);
 	max_value = INT_MIN;
 	while (head)
 	{

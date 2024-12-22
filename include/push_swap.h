@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 10:19:19 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:03:12 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ void	free_stack(t_stack	**head);
 
 /* Sorting */
 int		sorted(t_stack *head);
+void	sort_three(t_stack **a);
+t_stack	*find_biggest(t_stack *head);
 
 #endif
