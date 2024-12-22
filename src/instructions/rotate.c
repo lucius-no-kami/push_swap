@@ -6,13 +6,13 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:15:45 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 08:56:45 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 10:19:31 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack **head)
+static void	rotate(t_stack **head)
 {
 	t_stack	*fnode;
 	t_stack	*snode;

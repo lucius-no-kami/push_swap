@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 09:01:43 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 10:12:19 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	push_swap(int ac, char **av)
 		return (1);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
-	init_stack(&a, av + 1);
+	init_stack(&a, av);
+	ra(&a, 1);
+	sa(&a, 1);
 	/*if (!sorted(a))
 	{
 		if (stack_len(a) == 2)
