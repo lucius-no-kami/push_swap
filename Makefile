@@ -18,7 +18,7 @@ INCDIR = include
 # Source Files
 SRC_MAIN = main.c push_swap.c
 SRC_STACK = stack/init_stack.c stack/handling_errors.c stack/utils.c
-SRC_SORTING = sorting/sort.c sorting/utils.c sorting/turk_algorithm_core.c
+SRC_SORTING = sorting/sort.c sorting/utils.c sorting/turk_algo.c
 SRC_INSTRUCTION = instructions/swap.c instructions/rotate.c instructions/reverse_rotate.c instructions/push.c	
 
 SRC = $(SRC_MAIN) $(SRC_STACK) $(SRC_SORTING) $(SRC_INSTRUCTION)

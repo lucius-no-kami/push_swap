@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 14:23:46 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:26:24 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,3 @@ int	push_swap(int ac, char **av)
 	check_and_sort(&a, &b, av);
 	return (0);
 }
-
-/*
-	pb(a, b, 1);
-	ft_printf(CYAN"Stack A\n"RESET);
-	print_stack(*a);
-	ft_printf(GREEN"Stack B\n"RESET);
-	print_stack(*b);
-	pa(a, b, 1);
-	ft_printf(CYAN"Stack A\n"RESET);
-	print_stack(*a);
-	ft_printf(GREEN"Stack B\n"RESET);
-	print_stack(*b);
-	free_stack(a);
-*/
