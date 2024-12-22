@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 10:30:30 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 10:56:45 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 09:11:16 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	error_syntax(char *str)
 	if ((str[i] == '-' || str[i] == '+') && \
 	!(str[i + 1] >= '0' && str[i + 1] <= '9'))
 		return (1);
+	i = 1;
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')

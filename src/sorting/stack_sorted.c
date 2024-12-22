@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 11:09:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 14:15:20 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 08:51:06 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	sorted(t_stack *a)
 	return (1);
 }
 
-void	sort_three(t_stack **a)
+/*void	sort_three(t_stack **a)
 {
 	t_stack	*biggest;
 
@@ -36,4 +36,4 @@ void	sort_three(t_stack **a)
 		rra(a, 1);
 	if ((*a) > (*a)->next)
 		sa(a, 1);
-}
+}*/
