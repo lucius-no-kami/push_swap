@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 14:26:24 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/24 13:29:48 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	check_and_sort(t_stack **a, t_stack **b, char **av)
 		else if (stack_len(*a) == 3)
 			sort_three(a);
 		else
-			turk_algorithm(&a, &b);
+			turk_algorithm(a, b);
 	}
 }
 

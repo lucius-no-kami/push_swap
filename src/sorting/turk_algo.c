@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:57:36 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 14:26:13 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:42:20 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	turk_algorithm(t_stack **a, t_stack **b)
 {
-
+	
 }

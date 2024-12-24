@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 14:25:48 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/24 13:47:04 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	int				push_cost;
-	int				bigger_median;
+	int				is_above_median;
 	int				cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*previous;
