@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/24 18:39:26 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/25 12:49:02 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		sorted(t_stack *head);
 void	sort_three(t_stack **a);
 void	turk_algorithm(t_stack **a, t_stack **b);
 t_stack	*find_biggest(t_stack *head);
+t_stack	*get_smallest(t_stack *head);
 size_t	get_stack_len(t_stack *stack);
 
 #endif

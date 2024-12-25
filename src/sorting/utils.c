@@ -6,11 +6,31 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:09:28 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/24 18:39:14 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/25 13:01:23 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_stack	*get_smallest(t_stack *head)
+{
+	long	min;
+	t_stack	*target;
+
+	if (!head)
+		return ;
+	min = LONG_MAX;
+	while (current)
+	{
+		if (head->value < min)
+		{
+			target = head;
+			min = head->value;
+		}
+		head = head->next;
+	}
+	return (target);
+}
 
 size_t	get_stack_len(t_stack *stack)
 {
