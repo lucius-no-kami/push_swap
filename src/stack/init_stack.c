@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 11:14:35 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 10:11:40 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:27:42 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static void	append(t_stack **a, int n)
 {
-	t_stack	*last_node;
-	t_stack	*new_node;
+	t_stack		*last_node;
+	t_stack		*new_node;
+	static int	index = 0;
 
 	if (!a)
 		return ;
@@ -36,6 +37,7 @@ static void	append(t_stack **a, int n)
 		last_node->next = new_node;
 		new_node->previous = last_node;
 	}
+	i++;
 }
 
 void	init_stack(t_stack **a, char **av)

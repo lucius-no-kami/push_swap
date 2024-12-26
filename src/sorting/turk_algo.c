@@ -6,11 +6,16 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 12:57:36 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/25 12:55:37 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/25 18:23:25 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void set_cost(t_stack *a, t_stack *b)
+{
+	
+}
 
 static void	set_target(t_stack *a, t_stack *b)
 {
