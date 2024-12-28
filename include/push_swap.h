@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 07:43:35 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/28 11:22:32 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/18 07:44:06 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/25 18:19:42 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,56 +22,57 @@
 # define CYAN           "\033[0;36m"
 # define RESET          "\033[0m"
 
-# include <stdlib.h>
+# include <stdio.h>
 # include <limits.h>
-# include <stdbool.h>
-# include <unistd.h>
 # include "libft.h"
+/* #include "mlx.h" */
 
 typedef struct s_stack
 {
 	int				value;
-	int				current_pos;
 	int				index;
 	int				push_cost;
-	bool			is_above_median;
-	bool			cheapest;
+	int				is_above_median;
+	int				cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }	t_stack;
 
-/* Error management */
-int		error_syntax(char *str);
-int		repet_error(t_stack *a, int nb);
-void	free_stack(t_stack **head);
-void	free_str(char **str);
-void	free_error(t_stack **head, char **args, bool flag);
+/* Main */
+int		push_swap(int ac, char **av);
 
-/* Commands */
-void	sa(t_stack **a, bool flag);
-void	sb(t_stack **b, bool flag);
-void	ss(t_stack **a, t_stack **b, bool flag);
+/* Instructions */
+void	sa(t_stack **a, int print);
+void	sb(t_stack **b, int print);
+void	ss(t_stack **a, t_stack **b, int print);
 
-void	pa(t_stack **a, t_stack **b, bool flag);
-void	pb(t_stack **b, t_stack **a, bool flag);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b, int print);
 
-void	ra(t_stack **a, bool flag);
-void	rb(t_stack **b, bool flag);
-void	rr(t_stack **a, t_stack **b, bool flag);
+void	rra(t_stack **a, int print);
+void	rrb(t_stack **b, int print);
+void	rrr(t_stack **a, t_stack **b, int print);
 
-void	rra(t_stack **a, bool flag);
-void	rrb(t_stack **b, bool flag);
-void	rrr(t_stack **a, t_stack **b, bool flag);
+void	pa(t_stack **a, t_stack **b, int print);
+void	pb(t_stack **a, t_stack **b, int print);
 
-/* Stack management */
-void	stack_init(t_stack **a, char **args, bool flag);
+/* Stack */
+void	init_stack(t_stack **head, char **av);
 t_stack	*find_last_node(t_stack *head);
 int		stack_len(t_stack *head);
+int		error_syntax(char *str);
+int		error_duplicate(t_stack *head, int n);
+void	free_errors(t_stack **head);
+void	free_stack(t_stack	**head);
 
 /* Sorting */
-bool	sorted(t_stack *head);
-void	three_sort(t_stack **a);
-int		find_biggest(t_stack *head);
+int		sorted(t_stack *head);
+void	sort_three(t_stack **a);
+void	turk_algorithm(t_stack **a, t_stack **b);
+t_stack	*get_smallest(t_stack *head);
+size_t	get_stack_len(t_stack *stack);
+t_stack	*find_biggest(t_stack *head);
 
 #endif
