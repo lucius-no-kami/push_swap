@@ -5,58 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 10:17:42 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 12:48:37 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/28 08:52:13 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/28 10:39:24 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_len(t_stack *head)
+bool	sorted(t_stack *head)
 {
-	int		count;
-
 	if (!head)
-		return (0);
-	if (head->next == NULL)
-		return (1);
-	count = 1;
-	while (head->next != NULL)
+		return (true);
+	while (head->next)
 	{
-		count++;
+		if (head->value > head->next->value)
+			return (false);
 		head = head->next;
 	}
-	return (count);
+	return (true);
 }
 
-void	free_stack(t_stack	**head)
+int	stack_len(t_stack *head)
 {
-	t_stack	*tmp;
+	size_t	i;
 
+	i = 0;
 	if (!head)
-		return ;
-	while (*head)
+		return (0);
+	while (head)
 	{
-		tmp = (*head)->next;
-		free(*head);
-		*head = tmp;
+		i++;
+		head = head->next;
 	}
-	*head = NULL;
-}
-
-void	free_errors(t_stack **head)
-{
-	free_stack(head);
-	ft_printf(RED"Error\n"RESET);
-	exit(EXIT_FAILURE);
+	return (i);
 }
 
 t_stack	*find_last_node(t_stack *head)
 {
-	t_stack	*current;
-
-	current = head;
-	while (current->next != NULL)
-		current = current->next;
-	return (current);
+	if (!head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
 }

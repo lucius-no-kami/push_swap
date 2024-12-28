@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 10:15:43 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 10:54:22 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/28 10:10:02 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/28 10:47:36 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,38 @@
 
 static void	reverse_rotate(t_stack **head)
 {
-	t_stack	*fnode;
-	t_stack	*last_node;
+	t_stack	*first;
+	t_stack	*last;
 
-	fnode = *head;
-	last_node = find_last_node(*head);
-	last_node->previous->next = NULL;
-	last_node->previous = NULL;
-	last_node->next = fnode;
-	fnode->previous = last_node;
-	*head = last_node;
+	if (!head || !*head)
+		return ;
+	first = *head;
+	last = find_last_node(*head);
+	first->previous = last;
+	last->previous->next = NULL;
+	last->previous = NULL;
+	last->next = first;
+	*head = last;
 }
 
-void	rra(t_stack **a, int print)
+void	rra(t_stack **a, bool flag)
 {
 	reverse_rotate(a);
-	if (print)
+	if (flag)
 		ft_printf("rra\n");
 }
 
-void	rrb(t_stack **b, int print)
+void	rrb(t_stack **b, bool flag)
 {
 	reverse_rotate(b);
-	if (print)
+	if (flag)
 		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack **a, t_stack **b, int print)
+void	rrr(t_stack **a, t_stack **b, bool flag)
 {
-	reverse_rotate(a);
-	reverse_rotate(b);
-	if (print)
+	rra(a, false);
+	rrb(b, false);
+	if (flag)
 		ft_printf("rrr\n");
 }
