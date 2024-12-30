@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 07:43:35 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/30 07:43:20 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/30 12:52:17 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ void	five_sort(t_stack **a, t_stack **b);
 void	push_swap(t_stack **a, t_stack **b);
 void	init_node(t_stack *a, t_stack *b);
 void	move_to_a(t_stack **a, t_stack **b);
-void	double_rotate(t_stack **a, t_stack **b, t_stack *cnode);
-void	double_rrotate(t_stack **a, t_stack **b, t_stack *cnode);
 void	end_rotate(t_stack **stack, t_stack *node, char flag);
 int		find_biggest(t_stack *head);
 t_stack	*find_smallest(t_stack *head);
@@ -88,3 +86,9 @@ void	set_cost(t_stack *a, t_stack *b);
 void	set_cheapest(t_stack *head);
 
 #endif
+
+// Problem
+/* 
+void	double_rotate(t_stack **a, t_stack **b, t_stack *cnode);
+void	double_rrotate(t_stack **a, t_stack **b, t_stack *cnode);
+*/
