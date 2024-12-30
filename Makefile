@@ -13,15 +13,15 @@ NAME = push_swap
 
 SRCDIR = src
 OBJDIR = obj
-INCDIR = include
+INCDIR = includes
 
 # Source Files
-SRC_MAIN = main.c push_swap.c
-SRC_STACK = stack/init_stack.c stack/handling_errors.c stack/utils.c
-SRC_SORTING = sorting/sort.c sorting/utils.c sorting/turk_algo.c
-SRC_INSTRUCTION = instructions/swap.c instructions/rotate.c instructions/reverse_rotate.c instructions/push.c	
+SRC_MAIN 		=	main.c push_swap.c
+SRC_STACK		=	stack/stack.c stack/utils_errors.c stack/utils.c
+SRC_SORTING		=	sorting/sorting.c sorting/utils.c sorting/rotating.c
+SRC_COMMANDS	=	commands/push.c commands/swap.c commands/rotate.c commands/reverse_rotate.c
 
-SRC = $(SRC_MAIN) $(SRC_STACK) $(SRC_SORTING) $(SRC_INSTRUCTION)
+SRC = $(SRC_MAIN) $(SRC_STACK) $(SRC_SORTING) $(SRC_COMMANDS)
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))

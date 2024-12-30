@@ -5,50 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 08:39:25 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/24 13:29:48 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/28 10:44:20 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/30 10:13:05 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* A SUPPRIMER */
-static void	print_stack(t_stack *a)
+void	init_node(t_stack *a, t_stack *b)
 {
-	if (a == NULL)
-		return ;
-	ft_printf("Stack value: %d\n", a->value);
-	print_stack(a->next);
+	set_median(a);
+	set_median(b);
+	set_target(a, b);
+	set_cost(a, b);
+	set_cheapest(b);
 }
 
-static void	check_and_sort(t_stack **a, t_stack **b, char **av)
+void	push_swap(t_stack **a, t_stack **b)
 {
-	(void)b;
-	init_stack(a, av);
-	if (!sorted(*a))
-	{
-		if (stack_len(*a) == 2)
-			sa(a, 1);
-		else if (stack_len(*a) == 3)
-			sort_three(a);
-		else
-			turk_algorithm(a, b);
-	}
-}
+	int		lstack_a;
+	t_stack	*smallest;
 
-int	push_swap(int ac, char **av)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
+	lstack_a = stack_len(*a);
+	if (lstack_a == 5)
+		five_sort(a, b);
 	else
-		av = av + 1;
-	check_and_sort(&a, &b, av);
-	return (0);
+		while (lstack_a-- > 3)
+			pb(b, a, true);
+	three_sort(a);
+	while (*b)
+	{
+		init_node(*a, *b);
+		move_to_a(a, b);
+	}
+	set_median(*a);
+	smallest = find_smallest(*a);
+	if (smallest->is_above_median)
+		while (*a != smallest)
+			ra(a, true);
+	else
+		while (*a != smallest)
+			rra(a, true);
 }

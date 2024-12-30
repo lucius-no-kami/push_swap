@@ -5,50 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 11:14:28 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/21 13:00:26 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/28 08:59:44 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/30 09:31:09 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_stack **stack)
+static void	swap(t_stack **head)
 {
-	t_stack	*fnode;
-	t_stack	*snode;
+	int	len;
 
-	if (!(*stack) || !((*stack)->next))
+	len = stack_len(*head);
+	if (!*head || !head || len == 1)
 		return ;
-	fnode = *stack;
-	snode = (*stack)->next;
-	if (snode->next != NULL)
-		fnode->next = snode->next;
-	else
-		fnode->next = NULL;
-	fnode->previous = snode;
-	snode->previous = NULL;
-	snode->next = fnode;
-	*stack = snode;
+	*head = (*head)->next;
+	(*head)->previous->previous = *head;
+	(*head)->previous->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->previous = (*head)->previous;
+	(*head)->next = (*head)->previous;
+	(*head)->previous = NULL;
 }
 
-void	sa(t_stack **a, int print)
+void	sa(t_stack **a, bool flag)
 {
 	swap(a);
-	if (print == 1)
+	if (flag)
 		ft_printf("sa\n");
 }
 
-void	sb(t_stack **b, int print)
+void	sb(t_stack **b, bool flag)
 {
 	swap(b);
-	if (print == 1)
+	if (flag)
 		ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b, int print)
+void	ss(t_stack **a, t_stack **b, bool flag)
 {
-	swap(a);
-	swap(b);
-	if (print == 1)
+	sa(a, false);
+	sb(b, false);
+	if (flag)
 		ft_printf("ss\n");
 }

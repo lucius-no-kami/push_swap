@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 13:23:01 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/22 14:19:43 by luluzuri         ###   ########.fr       */
+/*   Created: 2024/12/28 08:58:45 by luluzuri          #+#    #+#             */
+/*   Updated: 2024/12/30 09:27:20 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,38 @@
 
 static void	push(t_stack **receiver, t_stack **sender)
 {
-	t_stack	*tmp;
+	t_stack	*node;
 
-	if (*sender == NULL)
+	if (!sender)
 		return ;
-	tmp = *sender;
-	*sender = tmp->next;
-	if (*sender != NULL)
+	node = *sender;
+	*sender = (*sender)->next;
+	if (*sender)
 		(*sender)->previous = NULL;
-	if (*receiver != NULL)
-		(*receiver)->previous = tmp;
-	tmp->next = *receiver;
-	tmp->previous = NULL;
-	*receiver = tmp;
+	node->previous = NULL;
+	if (!*receiver)
+	{
+		*receiver = node;
+		node->next = NULL;
+	}
+	else
+	{
+		node->next = *receiver;
+		node->next->previous = node;
+		*receiver = node;
+	}
 }
 
-void	pa(t_stack **a, t_stack **b, int print)
+void	pa(t_stack **a, t_stack **b, bool flag)
 {
 	push(a, b);
-	if (print)
+	if (flag)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack **a, t_stack **b, int print)
+void	pb(t_stack **b, t_stack **a, bool flag)
 {
 	push(b, a);
-	if (print)
+	if (flag)
 		ft_printf("pb\n");
 }
