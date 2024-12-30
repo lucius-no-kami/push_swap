@@ -6,21 +6,11 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 07:42:46 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/30 08:36:22 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/30 10:50:33 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack	*head)
-{
-	while (head)
-	{
-		ft_printf("%d ", head->value);
-		head = head->next;
-	}
-	ft_printf("\n");
-}
 
 int	main(int ac, char **av)
 {
