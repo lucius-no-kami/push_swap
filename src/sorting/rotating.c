@@ -6,27 +6,11 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 08:46:32 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/30 13:02:59 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/31 08:14:38 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	double_rotate(t_stack **a, t_stack **b, t_stack *cnode)
-{
-	while ((*a != cnode->target_node) && (*b != cnode))
-		rr(a, b, true);
-	set_median(*b);
-	set_median(*a);
-}
-
-void	double_rrotate(t_stack **a, t_stack **b, t_stack *cnode)
-{
-	while ((*a != cnode->target_node) && (*b != cnode))
-		rrr(a, b, true);
-	set_median(*b);
-	set_median(*a);
-}
 
 void	end_rotate(t_stack **head, t_stack *node, char flag)
 {
