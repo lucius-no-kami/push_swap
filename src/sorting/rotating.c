@@ -6,7 +6,7 @@
 /*   By: luluzuri <luluzuri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 08:46:32 by luluzuri          #+#    #+#             */
-/*   Updated: 2024/12/30 12:50:34 by luluzuri         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:02:59 by luluzuri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	double_rrotate(t_stack **a, t_stack **b, t_stack *cnode)
 
 void	end_rotate(t_stack **head, t_stack *node, char flag)
 {
+	set_median(*head);
 	while (*head != node)
 	{
 		if (flag == 'a')
